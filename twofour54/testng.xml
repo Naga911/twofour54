@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Test-Suite" parallel="tests" thread-count="2">
+  <listeners>
+    <listener class-name="utilities.TestListener"/>
+  </listeners>
+  <!--Moto Turbo Mobile Details -->
+  <test name="FireFox" parallel="classes" thread-count="1">
+
+    <parameter name="osname" value="Windows" />
+    <parameter name="BrowserType" value="firefox" />
+    <parameter name="platformVersion" value="54.0" />
+
+
+    <classes>
+      <class name="tests.cucumber.tests.RunCucumberFeatures"/>
+    </classes>
+  </test>
+
+  <!--Redmi 5A Mobile Details -->
+<!--
+   <test name="Chrome" parallel="classes" thread-count="1">
+         <parameter name="osname" value="Windows" />
+         <parameter name="BrowserType" value="chrome" />
+         <parameter name="platformVersion" value="71.0.3578.98" />
+         <parameter name="portNumber" value="5000" />
+
+         <classes>
+             <class name="main.CucumberRunner"/>
+         </classes>
+     </test>
+-->
+
+
+</suite>
