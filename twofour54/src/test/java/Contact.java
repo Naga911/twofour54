@@ -1,3 +1,4 @@
+/*
 import Screens.BaseScreen;
 import cucumber.api.PendingException;
 import cucumber.api.java8.En;
@@ -23,3 +24,4 @@ public class Contact implements En {
         });
     }
 }
+*/
