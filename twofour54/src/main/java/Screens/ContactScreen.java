@@ -3,17 +3,17 @@ package Screens;
 
 import org.openqa.selenium.WebDriver;
 
-public class SplashScreen extends BaseScreen {
+public class ContactScreen extends BaseScreen {
 
 
-    public SplashScreen(WebDriver driver) {
+    public ContactScreen(WebDriver driver) {
         super(driver);
     }
 
 
 
     public void skipSplashScreen() {
-        System.out.println("we are 2 ");
+        System.out.println("we are 3 ");
 
         // clicks(By.xpath(login));
 

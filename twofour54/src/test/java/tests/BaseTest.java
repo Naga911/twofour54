@@ -1,5 +1,7 @@
 package tests;
 
+import Screens.BaseScreen;
+import Screens.ContactScreen;
 import Screens.SplashScreen;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxBinary;
@@ -23,7 +25,7 @@ import java.util.concurrent.TimeUnit;
 public class BaseTest {
 
 
-    public static WebDriver driver;
+    public static WebDriver driver = BaseScreen.driver;
 
     public WebDriver getDriver() {
 
@@ -35,7 +37,7 @@ public class BaseTest {
     //private ThreadLocalDriver threadLocalDriver = new ThreadLocalDriver();
     //Base Screens for all cases
     protected SplashScreen splashScreen = null;
-    // protected LoginScreen loginScreen= null;
+    protected ContactScreen contactScreen = null;
    /* protected TutorialScreen tutorialScreen = null;
     protected SelectionScreen selectionScreen = null;
     protected CandidateMainScreen candidateMainScreen = null;*/
@@ -49,7 +51,7 @@ public class BaseTest {
       /*  //Unlock the device if it is locked.
         final Runtime rt = Runtime.getRuntime();
         rt.exec("adb shell input keyevent 224");*/
-        if(driver==null) {
+        if (driver == null) {
             if (osname.equalsIgnoreCase("Windows")) {
                 if (BrowserType.equalsIgnoreCase("firefox")) {
                /* String firefoxDriverPath = System.getProperty("user.dir") + "/src/test/resources/drivers/linux/geckodriver";
@@ -64,13 +66,13 @@ public class BaseTest {
 
                     desired.setCapability(FirefoxOptions.FIREFOX_OPTIONS, options.setBinary(firefoxBinary));
                     options.setProfile(profile);
-                    String urls="https://aurauat.twofour54.com/AP/Login.aspx";
+                    String urls = "https://auradev.twofour54.com/AP/Login.aspx";
                     // options.addArguments("disable-infobars");
 
 
                     //ThreadLocalDriver.setTLDriver(new RemoteWebDriver(new URL(urls),desired));
                     driver = new FirefoxDriver(options);
-                    driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+                    //    driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
                     driver.get(urls);
                     //  driver.manage().window().maximize();
                 }
@@ -79,7 +81,8 @@ public class BaseTest {
 
         //Base Screen Initialization
         //splashScreen = new SplashScreen(ThreadLocalDriver.getTLDriver());
-        splashScreen= new SplashScreen(driver);
+        splashScreen = new SplashScreen(driver);
+        contactScreen=new ContactScreen(driver);
         // loginScreen = new LoginScreen(ThreadLocalDriver.getTLDriver());
 
 

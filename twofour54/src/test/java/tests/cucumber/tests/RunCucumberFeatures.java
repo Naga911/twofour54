@@ -23,9 +23,9 @@ import static utilities.PropReader.getDeviceName;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        tags = "@twofour54Application-login",
-        features = {"C:\\Users\\NagarajS\\IdeaProjects\\twofour54\\src\\test\\java\\tests\\cucumber\\features\\Login.feature"},
-        //tags= {"@twofour54Application-login, @SignUpPage"},
+       // tags = "@twofour54Application-login",
+        features = {"C:\\twofour54\\twofour54\\src\\test\\java\\tests\\cucumber\\features"},
+        tags= {"@twofour54Application-login, @twofour54Application-Contact"},
         glue = {"tests.cucumber.steps"},
         plugin = {"com.cucumber.listener.ExtentCucumberFormatter:output/reports.html"}
 )

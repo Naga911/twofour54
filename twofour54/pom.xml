@@ -152,7 +152,6 @@
         </dependency>
 
 
-
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
@@ -229,7 +228,6 @@
                 </goals>
                 <configuration>
                     <projectName>Amazon-android-automation</projectName>  &lt;!&ndash; Replace with project name &ndash;&gt;
-
                     <buildNumber>1</buildNumber>
                     <parallelTesting>true</parallelTesting>
                 </configuration>

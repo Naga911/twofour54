@@ -10,14 +10,21 @@ public class contact {
 
     private static WebElement element = null;
 
-    WebDriver driver = BaseScreen.driver;
 
-    public static WebElement AddContact(WebDriver driver) {
 
-        element = driver.findElement(By.xpath("//*[@id='ob_em_mc']/tbody/tr/td[3]"));
+    public static WebElement PhotoGraphClick(WebDriver driver) {
+
+        element = driver.findElement(By.xpath("//a[@title='Edit']"));
 
         return element;
 
+    }
+
+    public static WebElement SelectFile(WebDriver driver) {
+
+        element = driver.findElement(By.xpath("//*[@id='selecFile']"));
+
+        return element;
 
     }
 }

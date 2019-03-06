@@ -13,10 +13,12 @@ public class LoginSteps extends BaseSteps {
 
     WebDriver driver = BaseScreen.driver;
 
+
+
     @Before
     public void setupLoginSteps() {
         System.out.println("Cucumber Before-logins.java-test-cucumber");
-        setupCucumber();
+        setupCucumber1();
     }
 
     @Given("^([^\"]*) and ([^\"]*)$")

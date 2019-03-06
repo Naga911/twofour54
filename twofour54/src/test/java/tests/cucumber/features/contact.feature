@@ -5,5 +5,6 @@ Feature: Contact Feature
 
 
     Given Hover MyContacts add New Contacts
+    And Upload PhotoGraph & Enter Basic Information
 
 
