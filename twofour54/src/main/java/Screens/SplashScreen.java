@@ -2,11 +2,11 @@ package Screens;
 
 
 import org.openqa.selenium.WebDriver;
-
+@SuppressWarnings("Duplicates")
 public class SplashScreen extends BaseScreen {
 
 
-    public SplashScreen(WebDriver driver) {
+   public SplashScreen(WebDriver driver) {
         super(driver);
     }
 

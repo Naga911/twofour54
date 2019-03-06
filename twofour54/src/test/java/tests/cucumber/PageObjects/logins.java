@@ -10,7 +10,7 @@ public class logins {
 
     private static WebElement element = null;
 
-    WebDriver driver = BaseScreen.driver;
+
 
     public static WebElement username(WebDriver driver) {
 

@@ -1,30 +1,26 @@
 package tests.cucumber.steps;
 
 import Screens.BaseScreen;
+import Screens.ContactScreen;
 import cucumber.api.PendingException;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import org.openqa.selenium.*;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.*;
-import tests.cucumber.PageObjects.contact;
 
 import java.awt.*;
 import java.awt.event.InputEvent;
-import java.time.Duration;
-import java.util.Iterator;
-import java.util.Set;
 
 
-public class contactSteps extends BaseSteps {
-    WebDriver driver = BaseScreen.driver;
 
+public class contactSteps  {
+    private WebDriver driver = BaseScreen.driver;
 
     @Before
     public void setupLoginSteps2() {
         System.out.println("Cucumber Before-logins.java-test-cucumber");
-        setupCucumber2();
+     //   setupCucumber2();
+        //contactScreen = new ContactScreen(driver);
     }
 
 
@@ -50,8 +46,12 @@ public class contactSteps extends BaseSteps {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        Thread.sleep(25000);
-        String Parent_Window = driver.getWindowHandle();
+        Thread.sleep(20000);
+
+
+
+        String Parent_Window = driver.getTitle();
+        //getWindowHandle();
         System.out.println(Parent_Window);
         // Switching from parent window to child window
         for (String Child_Window : driver.getWindowHandles()) {

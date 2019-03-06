@@ -25,15 +25,17 @@ import java.util.concurrent.TimeUnit;
 public class BaseTest {
 
 
-    public static WebDriver driver = BaseScreen.driver;
+    //public WebDriver driver;
 
-    public WebDriver getDriver() {
+
+    /*public WebDriver getDriver() {
 
         return driver;
     }
-
+*/
 
     public WebDriverWait wait;
+    protected static WebDriver driver;
     //private ThreadLocalDriver threadLocalDriver = new ThreadLocalDriver();
     //Base Screens for all cases
     protected SplashScreen splashScreen = null;
@@ -57,33 +59,42 @@ public class BaseTest {
                /* String firefoxDriverPath = System.getProperty("user.dir") + "/src/test/resources/drivers/linux/geckodriver";
                 System.setProperty("webdriver.gecko.driver", firefoxDriverPath);*/
                     System.setProperty("webdriver.gecko.driver", "C:\\Users\\NagarajS\\IdeaProjects\\2_iDigiPro\\driver-servers\\geckodriver.exe");
+
+                    DesiredCapabilities desired = new DesiredCapabilities();
+                    desired.setCapability("osname", osname);
+                    desired.setCapability("BrowserType", BrowserType);
+                    desired.setCapability("platformVersion", platformVersion);
                     File pathBinary = new File("C:\\Program Files\\Mozilla Firefox\\firefox.exe");
 
                     FirefoxBinary firefoxBinary = new FirefoxBinary(pathBinary);
-                    DesiredCapabilities desired = DesiredCapabilities.firefox();
+
                     FirefoxProfile profile = new FirefoxProfile(new File("C:\\Users\\NagarajS\\AppData\\Roaming\\Mozilla\\Firefox\\Profiles\\079iupvh.FirefoxProfile"));
                     FirefoxOptions options = new FirefoxOptions().addPreference("security.insecure_password.ui.enabled", false).addPreference("security.insecure_field_warning.contextual.enabled", false);
 
                     desired.setCapability(FirefoxOptions.FIREFOX_OPTIONS, options.setBinary(firefoxBinary));
                     options.setProfile(profile);
-                    String urls = "https://auradev.twofour54.com/AP/Login.aspx";
+
                     // options.addArguments("disable-infobars");
 
+                    String urls = "https://auradev.twofour54.com/AP/Login.aspx";
+                    // ThreadLocalDriver.setTLDriver(new RemoteWebDriver(new URL(urls),desired));
 
-                    //ThreadLocalDriver.setTLDriver(new RemoteWebDriver(new URL(urls),desired));
                     driver = new FirefoxDriver(options);
-                    //    driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+                    driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
                     driver.get(urls);
+
+                    splashScreen = new SplashScreen(driver);
+                    contactScreen = new ContactScreen(driver);
                     //  driver.manage().window().maximize();
+
+                    //Base Screen Initialization
+
+                    //splashScreen = new SplashScreen(driver);
+                    //contactScreen=new ContactScreen(driver);
+
                 }
             }
         }
-
-        //Base Screen Initialization
-        //splashScreen = new SplashScreen(ThreadLocalDriver.getTLDriver());
-        splashScreen = new SplashScreen(driver);
-        contactScreen=new ContactScreen(driver);
-        // loginScreen = new LoginScreen(ThreadLocalDriver.getTLDriver());
 
 
     }

@@ -2,7 +2,7 @@ package Screens;
 
 
 import org.openqa.selenium.WebDriver;
-
+@SuppressWarnings("Duplicates")
 public class ContactScreen extends BaseScreen {
 
 
