@@ -11,8 +11,7 @@ import org.openqa.selenium.WebElement;
 import tests.BaseTest;
 import tests.ThreadLocalDriver;
 import tests.cucumber.PageObjects.logins;
-
-
+import utilities.Generic;
 
 
 public class LoginSteps  {
@@ -27,7 +26,7 @@ public class LoginSteps  {
         System.out.println("Cucumber Before-logins.java-test-cucumber");
       //  setupCucumber1();
       // splashScreen= new SplashScreen(ThreadLocalDriver.getTLDriver());
-
+        Generic.waitForLoad(driver);
     }
 
     @Given("^([^\"]*) and ([^\"]*)$")
@@ -35,6 +34,7 @@ public class LoginSteps  {
         System.out.println("Cucumber Given");
         String user = username;
         String pass = password;
+
 
         logins.username(driver).sendKeys(user);
         logins.password(driver).sendKeys(pass);

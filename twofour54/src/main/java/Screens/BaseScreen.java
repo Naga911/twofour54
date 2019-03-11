@@ -15,14 +15,19 @@ public class BaseScreen {
 
     public static WebDriver driver;
     protected static WebDriverWait wait;
+//
 
     public BaseScreen(WebDriver driver) {
         this.driver = driver;
 //        wait = new WebDriverWait(driver, 15);
     }
 
-    protected void waitAndClick(By by) {
+    public static void waitAndClick(By by) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(by)).click();
+    }
+
+    public static void waitClick(By by) {
+        wait.until(ExpectedConditions.visibilityOf((WebElement) by)).click();
     }
 
     protected void clicks(By xpath) {

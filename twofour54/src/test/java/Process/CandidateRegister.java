@@ -2,7 +2,7 @@ package Process;
 
 import org.apache.tools.ant.taskdefs.Sleep;
 import org.testng.annotations.Test;
-import screens.*;
+
 import tests.BaseTest;
 import tests.ThreadLocalDriver;
 

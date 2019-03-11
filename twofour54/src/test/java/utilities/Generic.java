@@ -8,6 +8,9 @@ import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 import java.io.File;
@@ -15,14 +18,15 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 import java.util.UUID;
+import java.util.concurrent.ThreadLocalRandom;
 
 import static Screens.BaseScreen.driver;
 
 @SuppressWarnings("Duplicates")
 public class Generic {
-
 
 
     public static String capture()
@@ -50,6 +54,54 @@ public class Generic {
         return "data:image/png;base64," + encodedBase64;
     }
 
+
+    public static WebElement webb(String test) {
+        String drop_down_values = null;
+        WebElement ele = driver.findElement(By.xpath(test));
+        String selectedOption8 = new Select(ele).getFirstSelectedOption().getText();
+        String Firstoption8 = "";
+        String stBusLocation = null;
+        if (selectedOption8.equals(Firstoption8)) {
+            ele.click();
+
+            WebElement CC = ele;
+            Select select = new Select(CC);
+
+            List<WebElement> comCode = select.getOptions();
+            for (int i = 0; i < comCode.size(); i++) {
+                drop_down_values = comCode.get(i).getText();
+            }
+            // System.out.println("Selected Values :" + drop_down_values);
+
+            int randomnumbers = ThreadLocalRandom.current().nextInt(0,
+                    comCode.size());
+            comCode.get(randomnumbers).click();
+
+            if (comCode.get(randomnumbers).isSelected()) {
+                stBusLocation = comCode.get(randomnumbers).getText();
+                System.out.println("Selected Values: " + stBusLocation);
+            }
+
+        } else {
+
+            System.out.println("Dropdown value already selected :"
+                    + selectedOption8);
+
+        }
+        return ele;
+    }
+
+
+    public static void waitForLoad(WebDriver driver) {
+        ExpectedCondition<Boolean> pageLoadCondition = new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver driver) {
+                return ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
+            }
+        };
+        WebDriverWait wait = new WebDriverWait(driver, 30);
+        wait.until(pageLoadCondition);
+    }
+
     public void scrollTillAddToCart() throws InterruptedException {
         System.out.println("Scrolling down");
         for (int i = 0; i <= 1; i++) {
@@ -64,8 +116,8 @@ public class Generic {
             //endY= endY/4;
             System.out.println(endY);
 
-           // TouchAction action = new TouchAction(driver);
-         //   action.press(PointOption.point(startX, startY)).moveTo(PointOption.point(endX, endY)).release().perform();
+            // TouchAction action = new TouchAction(driver);
+            //   action.press(PointOption.point(startX, startY)).moveTo(PointOption.point(endX, endY)).release().perform();
             Thread.sleep(2000);
 
 
@@ -75,9 +127,8 @@ public class Generic {
     public String capture(String NameOfThread) throws Exception {
 
 
-
         System.out.println(NameOfThread);
-        String nameOfScr=NameOfThread;
+        String nameOfScr = NameOfThread;
 /*
 
 
@@ -100,10 +151,10 @@ public class Generic {
         //System.out.println("date1 "+date1);
         SimpleDateFormat mdyFormat = new SimpleDateFormat("dd/MMM/YYYY hh:mm", Locale.ENGLISH);
 
-        Date d1=d;
+        Date d1 = d;
         String ScreenDate = mdyFormat.format(d);
         System.out.println(ScreenDate);
-        String date2 = ScreenDate.replaceAll("/", "_").replaceFirst(":","h");
+        String date2 = ScreenDate.replaceAll("/", "_").replaceFirst(":", "h");
         //.replaceAll(":","_")
         System.out.println(date2);
         File sourceFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
@@ -119,7 +170,7 @@ public class Generic {
 
             //should create a file "ErrorScreenshots" in project folder
             String screenShotDestination = System.getProperty("user.dir")
-                    + "\\ErrorScreenshots\\" + NameOfThread+"/"+date2 +"m" +".png";
+                    + "\\ErrorScreenshots\\" + NameOfThread + "/" + date2 + "m" + ".png";
 
             File destination = new File(screenShotDestination);
             FileUtils.copyFile(sourceFile, destination);
