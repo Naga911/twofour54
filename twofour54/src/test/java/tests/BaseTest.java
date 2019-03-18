@@ -40,6 +40,7 @@ public class BaseTest {
     //Base Screens for all cases
     protected SplashScreen splashScreen = null;
     protected ContactScreen contactScreen = null;
+
    /* protected TutorialScreen tutorialScreen = null;
     protected SelectionScreen selectionScreen = null;
     protected CandidateMainScreen candidateMainScreen = null;*/

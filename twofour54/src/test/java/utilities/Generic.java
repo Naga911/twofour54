@@ -70,10 +70,11 @@ public class Generic {
             List<WebElement> comCode = select.getOptions();
             for (int i = 0; i < comCode.size(); i++) {
                 drop_down_values = comCode.get(i).getText();
+
             }
             // System.out.println("Selected Values :" + drop_down_values);
 
-            int randomnumbers = ThreadLocalRandom.current().nextInt(0,
+            int randomnumbers = ThreadLocalRandom.current().nextInt(1,
                     comCode.size());
             comCode.get(randomnumbers).click();
 
@@ -81,6 +82,7 @@ public class Generic {
                 stBusLocation = comCode.get(randomnumbers).getText();
                 System.out.println("Selected Values: " + stBusLocation);
             }
+
 
         } else {
 
@@ -91,6 +93,42 @@ public class Generic {
         return ele;
     }
 
+
+    private static List<WebElement> findElementInWholePage(WebDriver driver) throws InterruptedException {
+        List<WebElement> lsEle = null;
+        try {
+            // Get all FRAMES from selected page
+            List<WebElement> lsIFrames = driver.findElements(By.xpath("//iframe"));
+
+            boolean isSwitchedToIframe = false;
+            // Iterate through FRAMES (recursive loop)
+            for (WebElement weIFrame : lsIFrames) {
+                if (lsEle == null || lsEle.size() == 0) {
+                    try {
+                        isSwitchedToIframe = false;
+                        if (!weIFrame.isDisplayed() || weIFrame.getSize().getWidth() <= 1 || weIFrame.getSize().getHeight() <= 1) {
+                            continue;
+                        }
+                        driver.switchTo().frame(weIFrame);
+                        isSwitchedToIframe = true;
+                    } catch (WebDriverException e) {
+                        System.out.printf(e.getMessage());
+                    }
+                }
+            }
+        } catch (Exception ex) {
+            System.out.printf("Exception: " + ex);
+        }
+        return lsEle;
+    }
+    /*public void testUntitled() throws Exception
+    {
+        String[] exp ={"United Arab Emirates","Oman","Qatar","Kuwait","Bahrain","Saudi Arabia"};
+        if (stBusLocation.equals(exp)) {
+
+
+        }
+    }*/
 
     public static void waitForLoad(WebDriver driver) {
         ExpectedCondition<Boolean> pageLoadCondition = new ExpectedCondition<Boolean>() {

@@ -21,8 +21,7 @@ public class contact {
     }
 
 
-
-    public static String PhotoGraphClick="//a[@title='Edit']";
+    public static String PhotoGraphClick = "//a[@title='Edit']";
 
     //*Dropdown Selection*//
     public static String Salutation = "//select[@id='ctrlElementoForm_11395_288956_3_Mr_Mrs']";
@@ -34,7 +33,7 @@ public class contact {
     public static String UAEMobile = "//select[@id='ctrlElementoForm_11395_288924_3_UAE_Tel_Code']";
     public static String PhoneNo = "//select[@id='ctrlElementoForm_11395_288960_1_Country_Telephone_Codes_Prefix']";
     public static String Passport = "//select[@id='ctrlElementoForm_11395_288881_1_Passport_Issue_Country']";
-
+    public static String BillingAccount = "//select[@id='ctrlElementoForm_11395_288949_1_Billing_account_prefix']";
 
     public static WebElement PhotoGraphClick(WebDriver driver) {
 
@@ -124,4 +123,134 @@ public class contact {
         return element;
 
     }
+
+    public static WebElement DOB(WebDriver driver) {
+
+        element = driver.findElement(By.xpath("//input[@name='ctrlElementoForm$11395_288876_3_Date_of_Birth']"));
+
+        return element;
+
+    }
+
+    public static WebElement PassportIDate(WebDriver driver) {
+
+        element = driver.findElement(By.xpath("//input[@id='ctrlElementoForm_11395_288878_3_Passport_Issue_Date']"));
+
+        return element;
+
+    }
+
+    public static WebElement PassportEDate(WebDriver driver) {
+
+        element = driver.findElement(By.xpath("//input[@id='ctrlElementoForm_11395_288877_3_Passport_Expiry_Date']"));
+
+        return element;
+
+    }
+
+    public static WebElement Email(WebDriver driver) {
+
+        element = driver.findElement(By.xpath("//input[@id='ctrlElementoForm_11395_288892_3_Email']"));
+
+        return element;
+
+    }
+
+    public static WebElement UploadPassport(WebDriver driver) {
+
+        element = driver.findElement(By.xpath("//a[@id='ctrlElementoForm_11395_288905_3_Passport_Document_IntInd']"));
+
+        return element;
+
+    }
+
+    public static WebElement UploadBrowser(WebDriver driver) {
+
+        element = driver.findElement(By.xpath("//a[@id='uploader_browse']"));
+
+        return element;
+
+    }
+
+    public static WebElement JobTitle(WebDriver driver) {
+
+        element = driver.findElement(By.xpath("//a[@id='ctrlElementoForm_11395_288883_1_Job_Title_Boton']"));
+
+        return element;
+
+    }
+
+    public static WebElement ProceedButton(WebDriver driver) {
+
+        element = driver.findElement(By.xpath("//a[contains(text(),'Proceed')]"));
+
+        return element;
+
+    }
+
+    public static WebElement JobCode(WebDriver driver) {
+
+        element = driver.findElement(By.xpath("//input[@name='85']"));
+
+        return element;
+
+    }
+
+    public static WebElement NextButton(WebDriver driver) {
+
+        element = driver.findElement(By.xpath("//a[@class='ApEst_51614211']"));
+
+        return element;
+
+    }
+
+    public static WebElement NextButton2(WebDriver driver) {
+
+        element = driver.findElement(By.xpath("//a[@id='ctrlElementoForm_11397_289002_NEXT']"));
+
+        return element;
+
+    }
+
+    public static WebElement submit(WebDriver driver) {
+
+        element = driver.findElement(By.xpath("//a[@id='ctrlElementoForm_11398_289029_SUBMIT']"));
+
+        return element;
+
+    }
+
+    public static WebElement ClassofProcess(WebDriver driver) {
+
+        element = driver.findElement(By.xpath("//input[@id='txtClaseProceso']"));
+
+        return element;
+
+    }
+
+    public static WebElement ServiceDetails(WebDriver driver) {
+
+        element = driver.findElement(By.xpath("//input[@id='txtAsunto']"));
+
+        return element;
+
+    }
+
+    public static WebElement ProceedContact(WebDriver driver) {
+
+        element = driver.findElement(By.xpath("//a[@id='cmdBuscar']"));
+
+        return element;
+
+    }
+
+    public static WebElement GridClick(WebDriver driver) {
+
+        element = driver.findElement(By.xpath("//div[@title='Clacket Media FZ LLC']"));
+
+        return element;
+
+    }
+
+
 }
