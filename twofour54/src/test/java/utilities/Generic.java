@@ -17,10 +17,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
-import java.util.UUID;
+import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
 import static Screens.BaseScreen.driver;
@@ -93,6 +90,26 @@ public class Generic {
         return ele;
     }
 
+    public static Boolean Elements(WebDriver driver, String id, String resvisaduration) {
+
+        List<WebElement> myList = driver.findElements(By.id(id));
+        boolean isExist = false;
+        //myList contains all the web elements
+        //if you want to get all elements text into array list
+
+        List<String> all_elements_text = new ArrayList<>();
+        for (WebElement aMyList : myList) {
+            //loading text of each element in to array all_elements_text
+            all_elements_text.add(aMyList.getText());
+            //to print directly
+            System.out.println(aMyList.getText());
+            if (all_elements_text.contains(resvisaduration)) {
+                isExist = true;
+                break;
+            }
+        }
+        return true;
+    }
 
     private static List<WebElement> findElementInWholePage(WebDriver driver) throws InterruptedException {
         List<WebElement> lsEle = null;
@@ -136,8 +153,8 @@ public class Generic {
                 return ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
             }
         };
-        WebDriverWait wait = new WebDriverWait(driver, 30);
-        wait.until(pageLoadCondition);
+//        WebDriverWait wait = new WebDriverWait(driver, 30);
+  //      wait.until(pageLoadCondition);
     }
 
     public void scrollTillAddToCart() throws InterruptedException {

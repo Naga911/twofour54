@@ -1,7 +1,6 @@
 package tests.cucumber.steps;
 
 import Screens.BaseScreen;
-import Screens.ContactScreen;
 import cucumber.api.PendingException;
 import cucumber.api.Transform;
 import cucumber.api.java.Before;
@@ -9,34 +8,23 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import org.openqa.selenium.*;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import tests.cucumber.PageObjects.contact;
-import tests.cucumber.PageObjects.logins;
 import tests.cucumber.Transformer.EmailTransform;
 import utilities.Generic;
 
 import java.awt.*;
-import java.time.Duration;
-import java.util.ArrayList;
-import java.util.List;
 import java.awt.event.InputEvent;
-import java.util.Set;
-import java.util.concurrent.ThreadLocalRandom;
-import java.util.concurrent.TimeUnit;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated;
 
 @SuppressWarnings("Duplicates")
-
-
 public class contactSteps {
     private static WebDriver driver = BaseScreen.driver;
 
-    public static WebDriverWait wait = new WebDriverWait(driver, 20);
-    public String FN, LN;
+    private WebDriverWait wait = new WebDriverWait(driver, 20);
+    private String FN, LN;
 
 
     @Before
@@ -148,23 +136,21 @@ public class contactSteps {
         Integer numberOfFrames = Integer.parseInt(exe.executeScript("return window.length").toString());
         System.out.println("Number of iframes on the page are " + numberOfFrames);
 
-
+        Thread.sleep(4000);
         driver.switchTo().frame(5);
 
 
-        Thread.sleep(8000);
         contact.UploadClick(driver).click();
-        Thread.sleep(8000);
+        Thread.sleep(4000);
 
-        Runtime.getRuntime().exec("C:\\My projects\\B22.exe");
+        Runtime.getRuntime().exec("C:\\My projects\\B2.exe");
         Thread.sleep(8000);
 
         //wait.until(ExpectedConditions.visibilityOf(contact.SaveImage(driver))).click();
         contact.SaveImage(driver).click();
         driver.switchTo().defaultContent();
         //wait.until(ExpectedConditions.visibilityOf(contact.FirstName(driver))).click();
-        FN = FirstName;
-        LN = LastName;
+
         contact.FirstName(driver).sendKeys(FirstName);
         Thread.sleep(1000);
         //wait.until(ExpectedConditions.visibilityOf(contact.LastName(driver))).click();
@@ -260,14 +246,18 @@ public class contactSteps {
         contact.JobCode(driver).sendKeys("102");
         contact.ProceedButton(driver).click();
         Thread.sleep(6000);*/
-
-        contact.NextButton(driver).click();
+        //Thread.sleep(20000);
+        WebElement next = wait.until(ExpectedConditions.visibilityOf(contact.NextButton(driver)));
+        next.click();
         Thread.sleep(20000);
-        contact.NextButton(driver).click();
+        WebElement next1 = wait.until(ExpectedConditions.visibilityOf(contact.NextButton(driver)));
+        next1.click();
         Thread.sleep(20000);
-        contact.NextButton2(driver).click();
+        WebElement next2 = wait.until(ExpectedConditions.visibilityOf(contact.NextButton2(driver)));
+        next2.click();
         Thread.sleep(20000);
-        contact.submit(driver).click();
+        WebElement submit = wait.until(ExpectedConditions.visibilityOf(contact.submit(driver)));
+        submit.click();
         Thread.sleep(20000);
        /* driver.findElement(By.xpath("//a[@class='ApEst_30164611']")).click();
         Thread.sleep(8000);*/
@@ -276,9 +266,16 @@ public class contactSteps {
 
     }
 
-    @Given("^Verify, Approve contact from Approver ([^\"]*) ([^\"]*)$")
-    public void verifyApproveContactFromApproverUsernamePassword(String user, String pass) throws Throwable {
-        Thread.sleep(12000);
+
+    @AfterMethod
+    public void teardown() {
+        //  driver.quit();
+    }
+
+
+    @Given("^Verify, Approve contact from Approver ([^\"]*) ([^\"]*) ([^\"]*) ([^\"]*)$")
+    public void verifyApproveContactFromApproverUsernamePassword(String user, String pass, String FirstName, String LastName) throws Throwable {
+        Thread.sleep(6000);
         //String winHandleBefore = driver.getWindowHandle();
        /* ((JavascriptExecutor) driver).executeScript("window.open()");
         ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());*/
@@ -289,12 +286,26 @@ public class contactSteps {
         for (String windowHandle : handles) {
        //     if (!windowHandle.equals(parentWindow)) {
                 driver.switchTo().window(windowHandle);*/
-        String urls = "https://auradev.twofour54.com/Home/Home.aspx";
+
+
+        String urls = "https://auradev.twofour54.com";
         driver.get(urls);
+
+
         driver.switchTo().alert().sendKeys(user + Keys.TAB + pass);
         driver.switchTo().alert().accept();
-        Thread.sleep(4000);
+        Thread.sleep(6000);
+
         driver.switchTo().defaultContent();
+        Thread.sleep(12000);
+
+        if (wait.until(ExpectedConditions.alertIsPresent()) == null) {
+            System.out.println("alert was not present");
+        } else {
+            System.out.println("alert was present");
+            driver.switchTo().alert().sendKeys("AP5" + Keys.TAB + "Password123");
+            driver.switchTo().alert().accept();
+        }
         //driver.close(); //closing child window
         //       driver.switchTo().window(parentWindow); //cntrl to parent window
         //     }
@@ -302,6 +313,8 @@ public class contactSteps {
 
         String enws = driver.getTitle();
         System.out.println(enws);
+
+
         //driver.switchTo().defaultContent();
         //driver.close();
         System.out.println("we made it till here");
@@ -367,6 +380,7 @@ public class contactSteps {
         Integer numberOfFrames = Integer.parseInt(exe.executeScript("return window.length").toString());
         System.out.println("Number of iframes on the page are " + numberOfFrames);
         WebElement fr1 = wait.until(presenceOfElementLocated(By.xpath("//iframe[contains(@src,'/Home/BPM_Tareas_Lista.aspx?')]")));
+        //iframe[contains(@src,'/Home/BPM_TareaPersonal.aspx?')];
         driver.switchTo().frame(fr1);
 
         WebElement fr2 = wait.until(presenceOfElementLocated(By.id("ifTareasProceso")));
@@ -375,20 +389,92 @@ public class contactSteps {
 
         Thread.sleep(3000);
 
-        WebElement ClassofProcesses=wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//table[@id='pnlFiltro']/tbody/tr[2]/td[2]/div/div[3]/input[@id='txtClaseProceso']"))));
+        WebElement ClassofProcesses = wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//table[@id='pnlFiltro']/tbody/tr[2]/td[2]/div/div[3]/input[@id='txtClaseProceso']"))));
         ClassofProcesses.sendKeys("New");
-        System.out.println(FN);
-        WebElement ServiceDetails=wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//table[@id='pnlFiltro']/tbody/tr[3]/td[4]/div[1]/div[3]/input[@id='txtAsunto']"))));
 
-        ServiceDetails.sendKeys(FN);
+        WebElement ServiceDetails = wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//table[@id='pnlFiltro']/tbody/tr[3]/td[4]/div[1]/div[3]/input[@id='txtAsunto']"))));
+
+        ServiceDetails.sendKeys(FirstName);
+
+        wait.until(ExpectedConditions.visibilityOf(contact.Proceed(driver))).click();
+        Thread.sleep(3000);
+
+        WebElement clik = wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//table[@id='dgProcessTask_body_container']/tbody/tr[1]"))));
+        clik.click();
         Thread.sleep(12000);
 
-    }
+        /*String parentwindowhandler= driver.getWindowHandle(); // store your parent window..
+        String subwindowhandler=null;
+        Set<String> handles= driver.getWindowHandles();
+        Iterator<String> iterator= handles.iterator();
+        while(iterator.hasNext()){
+            subwindowhandler= iterator.next();
+        }*/
+        //driver.switchTo().window(subwindowhandler); // switch to child window..
+        //Thread.sleep(3000);
+
+      /*  WebElement mytable = driver.findElement(By.xpath("//html[1]/body[1]/div[6]/table[1]"));
+
+        //To locate rows of table.
+        List < WebElement > rows_table = mytable.findElements(By.tagName("tr"));
+
+        //To calculate no of rows In table.
+        int rows_count = rows_table.size();
 
 
-    @AfterMethod
-    public void teardown() {
-        //  driver.quit();
+        //Loop will execute for all the rows of the table
+        for (int row = 0; row < rows_count; row++) {
+
+            //To locate columns(cells) of that specific row.
+            List < WebElement > Columns_row = rows_table.get(row).findElements(By.tagName("td"));
+
+            //To calculate no of columns(cells) In that specific row.
+            int columns_count = Columns_row.size();
+            System.out.println("Number of cells In Row " + row + " are " + columns_count);
+
+            //Loop will execute till the last cell of that specific row.
+            for (int column = 0; column < columns_count; column++) {
+                //To retrieve text from the cells.
+                String celltext = Columns_row.get(column).getText();
+                System.out.println("Cell Value Of row number " + row + " and column number " + column + " Is " + celltext);
+            }
+        }*/
+        driver.switchTo().defaultContent();
+        WebElement fr5 = wait.until(presenceOfElementLocated(By.xpath("/html[1]/body[1]/div[6]/table[1]/tbody[1]/tr[2]/td[1]/iframe[1][contains(@src,'/Home/BPM_TareaPersonal.aspx?')]")));
+        driver.switchTo().frame(fr5);
+
+
+        WebElement takeownership = wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.id("ctrlElementoAnexo_17897_500890_TAKE_OWNERSHIP"))));
+        takeownership.click();
+
+        JavascriptExecutor exe1 = (JavascriptExecutor) driver;
+        Integer numberOfFrames1 = Integer.parseInt(exe1.executeScript("return window.length").toString());
+        System.out.println("Number of iframes on the page are " + numberOfFrames1);
+
+        WebElement next = wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//div[@id='ctrlElementoAnexo_DIV_Contenedor_17897']//a[@id='ctrlElementoAnexo_17897_500885_NEXT']"))));
+        next.click();
+        new WebDriverWait(driver, 20).until(
+                webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
+
+        WebElement next2 = wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.id("ctrlElementoAnexo_11861_302960_NEXT"))));
+        //a[@id='ctrlElementoAnexo_11861_302960_NEXT']
+        next2.click();
+        new WebDriverWait(driver, 30).until(
+                webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
+
+        WebElement approve = wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//div[@id='ctrlElementoAnexo_DIV_Contenedor_11863']//a[@class='ApEst_30299611']"))));
+        //a[@id='ctrlElementoAnexo_11861_302960_NEXT']
+        approve.click();
+
+        WebElement logout = wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//td[@id='Item_105']//table[@id='ob_em_mc']//a"))));
+        logout.click();
+
+        WebElement sw = wait.until(presenceOfElementLocated(driver.findElement(By.xpath("//iframe[contains(@src,'/Home/PortalEmpleados/RegistrarSalida.aspx')]"))));
+        driver.switchTo().frame(sw);
+
+        WebElement Accept = wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//a[@id='btnAceptar']"))));
+        Accept.click();
+
     }
 }
 

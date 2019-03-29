@@ -16,16 +16,16 @@ import org.testng.annotations.Test;
 import tests.BaseTest;
 
 
-
 import java.io.File;
 
 import static utilities.PropReader.getDeviceName;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-       // tags = "@twofour54Application-login",
+        // tags = "@twofour54Application-login",
         features = {"C:\\twofour54\\twofour54\\src\\test\\java\\tests\\cucumber\\features"},
-        tags= {"@twofour54Application-Temp"},
+        tags = {"@twofour54Application-login,@twofour54Application-Contact"},
+        //tags = {"@twofour54Application-login,@twofour54Application-Contact,@twofour54Application-employment"},
         glue = {"tests.cucumber.steps"},
         plugin = {"com.cucumber.listener.ExtentCucumberFormatter:output/reports.html"}
 )
@@ -45,7 +45,7 @@ public class RunCucumberFeatures extends BaseTest {
 
     @Test(groups = "cucumber", description = "Runs LoginCandidate Feature", dataProvider = "features")
     public void feature(CucumberFeatureWrapper cucumberFeature) {
-        System.out.println("Cucumber Test Class Inside Test"+ getDeviceName());
+        System.out.println("Cucumber Test Class Inside Test" + getDeviceName());
         System.out.println(cucumberFeature.getCucumberFeature());
         testNGCucumberRunner.runCucumber(cucumberFeature.getCucumberFeature());
 

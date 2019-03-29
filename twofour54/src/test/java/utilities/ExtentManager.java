@@ -8,18 +8,24 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.cucumber.listener.ExtentCucumberFormatter;
+import org.apache.commons.lang3.StringUtils;
+import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.Platform;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.io.File;
 import java.lang.reflect.Method;
 
+import static tests.ThreadLocalDriver.getDriver;
+
 //**********************************************************************************************************
 //Description: ExtentReports related operations are done by this class. I added extra functionality such as
 //"getCurrentPlatform". In this way, framework can create a report folder and file based on OS.
 //Reference: http://extentreports.com/docs/versions/3/java/
 //**********************************************************************************************************
+@SuppressWarnings("Duplicates")
 public class ExtentManager extends ExtentCucumberFormatter {
     public static ExtentReports extent;
     public static ExtentTest logger;
@@ -34,7 +40,20 @@ public class ExtentManager extends ExtentCucumberFormatter {
         super(file);
     }
 
+    /*public static String getBrowser() {
+        logger.info("Getting system browser name . . .");
+        Capabilities cap = ((RemoteWebDriver) getDriver()).getCapabilities();
+        String browserName = cap.getBrowserName().toLowerCase();
+        return StringUtils.capitalize(browserName);
+    }
 
+    public static String getVersion() {
+        logger.info("Getting browser version . . .");
+        Capabilities cap = ((RemoteWebDriver) getDriver()).getCapabilities();
+        String v = cap.getVersion();
+        logger.info("Browser version: " + v);
+        return v;
+    }*/
 
     public static ExtentReports getInstance() {
         if (extent == null)
@@ -47,6 +66,9 @@ public class ExtentManager extends ExtentCucumberFormatter {
         String testMethodName = method.getName(); //This will be:verifySaveButtonEnabled
         String descriptiveTestName = method.getAnnotation(Test.class).testName(); //This will be: 'Verify if the save button is enabled'
         ExtentTest test = extent.createTest(descriptiveTestName);
+
+        test.assignAuthor("Nagaraj");
+
         System.out.println(test);
 
     }

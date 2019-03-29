@@ -54,7 +54,7 @@
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<li>
                 <a href='#!'>
-                    <span class='label suite-start-time blue darken-3'>Mar 18, 2019 11:38:37 AM</span>
+                    <span class='label suite-start-time blue darken-3'>Mar 29, 2019 01:05:31 PM</span>
 				</a>
 			</li>
 			<li>
@@ -93,7 +93,8 @@
 					<i class='material-icons'>local_offer</i> Category
 				</a>
 				<ul id='category-toggle' class='dropdown-content'>
-					<li><a href='#'>@twofour54Application-Temp</a></li>
+					<li><a href='#'>@twofour54Application-login</a></li>
+					<li><a href='#'>@twofour54Application-Contact</a></li>
 					<li class='divider'></li>
 					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
 				</ul>
@@ -141,10 +142,10 @@
 					<canvas id='parent-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='0%'><span class='strong'>0</span> feature(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='50%'><span class='strong'>1</span> feature(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='100%'>1</span> feature(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+					<span class='strong tooltipped' data-position='top' data-tooltip='50%'>1</span> feature(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
 				</div>
 			</div>
 		</div>
@@ -156,10 +157,10 @@
 					<canvas id='child-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='0%'><span class='strong'>0</span> scenario(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='33.333%'><span class='strong'>1</span> scenario(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='100%'>1</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+					<span class='strong tooltipped' data-position='top' data-tooltip='66.667%'>2</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
 				</div>
 			</div>
 		</div>
@@ -171,10 +172,10 @@
 					<canvas id='grandchild-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='0%'><span class='strong'>0</span> step(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='66.667%'><span class='strong'>4</span> step(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='100%'>1</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+					<span class='strong tooltipped' data-position='top' data-tooltip='33.333%'>2</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
 				</div>
 			</div>
 		</div>
@@ -188,23 +189,106 @@
 			<ul id='test-collection' class='test-collection'>
 				
 				
-				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='2'>
+				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='2'>
+					<div class='test-heading'>
+						<span class='test-name'>Login Feature</span>
+						<span class='test-time'>Mar 29, 2019 01:05:31 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='scenariooutline node' test-id='3' status='pass'>
+	<span class='duration right label'>0h 0m 9s+865ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Login into twofour54 application successfully</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='4' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@twofour54Application-login</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Login into twofour54 application successfully</span>
+			
+				<ul class='steps'>
+					<li test-id='5' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given WalidNasr and Password123</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='7'>
 					<div class='test-heading'>
 						<span class='test-name'>Contact Feature</span>
-						<span class='test-time'>Mar 18, 2019 11:38:37 AM</span>
+						<span class='test-time'>Mar 29, 2019 01:05:41 PM</span>
 						<span class='test-status right fail'>fail</span>
 					</div>
 					<div class='test-content hide'>
-<div class='scenariooutline node' test-id='3' status='fail'>
-	<span class='duration right label'>0h 0m 29s+999ms</span>
+<div class='scenariooutline node' test-id='8' status='fail'>
+	<span class='duration right label'>0h 4m 39s+559ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Login into twofour54 and create Contact</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='9' class='node scenario fail' status='fail'>
+			<div class='category-list'>
+				<span class='category label white-text'>@twofour54Application-Contact</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Login into twofour54 and create Contact</span>
+			
+				<ul class='steps'>
+					<li test-id='10' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given Hover MyContacts add New Contacts</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='11' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And Upload PhotoGraph & Enter Basic Information</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='12' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then Enter Mandatory Fields such as Employe 11, Employe 11, Mother, HGTFR554RR, Bangalore, 9876543, 76543, 11-03-2000, 10-02-2019, 21-03-2041</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='13' class='node then fail' status='fail'><b>Then</b>
+						<span class="bdd-step-name">Then I enter Email Address as Email:Devan.M</span>
+							<div class='pre'><textarea>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[FirefoxDriver: firefox on XP (362d4ac3-971b-4d81-9fe2-65eeafdfa386)] -> xpath: //a[@id='ctrlElementoForm_11398_289029_SUBMIT']] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: '3.141.5', revision: 'd54ebd709a', time: '2018-11-06T11:42:16'
+System info: host: 'DELL001-PC', ip: '172.17.1.227', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_171'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 55.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:processID: 9980, moz:profile: C:\Users\NagarajS\AppData\L..., pageLoadStrategy: normal, platform: XP, platformName: XP, platformVersion: 6.1, rotatable: false, specificationLevel: 0, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}}
+Session ID: 362d4ac3-971b-4d81-9fe2-65eeafdfa386
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+	at tests.cucumber.steps.contactSteps.iEnterEmailAddressAsEmailAdmin(contactSteps.java:259)
+	at ✽.Then I enter Email Address as Email:Devan.M(contact.feature:10)
+</textarea></div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='14' status='fail'>
+	<span class='duration right label'>0h 1m 33s+232ms</span>
 	<div class='desc'>
 		<b>ScenarioOutline</b>
 		<span class="desc-text">Open Contact from Approver</span>
 	</div>
 	<ul class='steps'>
-		<li test-id='4' class='node scenario fail' status='fail'>
+		<li test-id='15' class='node scenario fail' status='fail'>
 			<div class='category-list'>
-				<span class='category label white-text'>@twofour54Application-Temp</span>
+				<span class='category label white-text'>@twofour54Application-Contact</span>
 			</div>
 			
 			<b>Scenario</b>
@@ -212,13 +296,19 @@
 			<span class="bdd-step-name">Open Contact from Approver</span>
 			
 				<ul class='steps'>
-					<li test-id='5' class='node given fail' status='fail'><b>Given</b>
-						<span class="bdd-step-name">Given Verify, Approve contact from Approver AP5 Password123</span>
-							<div class='pre'><pre>java.lang.IllegalArgumentException: Keys to send should be a not null CharSequence
-	at org.openqa.selenium.remote.RemoteWebElement.sendKeys(RemoteWebElement.java:97)
-	at tests.cucumber.steps.contactSteps.verifyApproveContactFromApproverUsernamePassword(contactSteps.java:383)
-	at ✽.Given Verify, Approve contact from Approver AP5 Password123(temp.feature:5)
-</pre></div>
+					<li test-id='16' class='node given fail' status='fail'><b>Given</b>
+						<span class="bdd-step-name">Given Verify, Approve contact from Approver AP5 Password123 Employe 11 Employe 11</span>
+							<div class='pre'><textarea>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[FirefoxDriver: firefox on XP (362d4ac3-971b-4d81-9fe2-65eeafdfa386)] -> id: ctrlElementoAnexo_11863_302997_APPROVE] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: '3.141.5', revision: 'd54ebd709a', time: '2018-11-06T11:42:16'
+System info: host: 'DELL001-PC', ip: '172.17.1.227', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_171'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 55.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:processID: 9980, moz:profile: C:\Users\NagarajS\AppData\L..., pageLoadStrategy: normal, platform: XP, platformName: XP, platformVersion: 6.1, rotatable: false, specificationLevel: 0, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}}
+Session ID: 362d4ac3-971b-4d81-9fe2-65eeafdfa386
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+	at tests.cucumber.steps.contactSteps.verifyApproveContactFromApproverUsernamePassword(contactSteps.java:465)
+	at ✽.Given Verify, Approve contact from Approver AP5 Password123 Employe 11 Employe 11(contact.feature:18)
+</textarea></div>
 					</li>
 				</ul>
 		</li>
@@ -278,15 +368,15 @@
 				
 				<li class='category displayed active'>
 					<div class='category-heading'>
-						<span class='category-name'>@twofour54Application-Temp</span>
+						<span class='category-name'>@twofour54Application-login</span>
 						<span class='category-status right'>
-							<span class='label fail'>2</span>
+							<span class='label pass'>2</span>
 						</span>
 					</div>
 					<div class='category-content hide'>
 						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 2</span>
 							
-							<span class='label red lighten-1 white-text'>Failed: 2</span>
 							
 						</div>
 					
@@ -301,13 +391,57 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td>Mar 18, 2019 11:38:37 AM</td>
-										<td class='linked' test-id='2'>Contact Feature</td>
+										<td>Mar 29, 2019 01:05:31 PM</td>
+										<td class='linked' test-id='2'>Login Feature</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 29, 2019 01:05:31 PM</td>
+										<td class='linked' test-id='4'>Login Feature.Login into twofour54 application successfully.Login into twofour54 application successfully</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@twofour54Application-Contact</span>
+						<span class='category-status right'>
+							<span class='label fail'>3</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							<span class='label red lighten-1 white-text'>Failed: 3</span>
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Mar 29, 2019 01:05:41 PM</td>
+										<td class='linked' test-id='7'>Contact Feature</td>
 										<td><span class='test-status fail'>fail</span></td>
 									</tr>
 									<tr>
-										<td>Mar 18, 2019 11:38:37 AM</td>
-										<td class='linked' test-id='4'>Contact Feature.Open Contact from Approver.Open Contact from Approver</td>
+										<td>Mar 29, 2019 01:05:41 PM</td>
+										<td class='linked' test-id='9'>Contact Feature.Login into twofour54 and create Contact.Login into twofour54 and create Contact</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Mar 29, 2019 01:10:20 PM</td>
+										<td class='linked' test-id='15'>Contact Feature.Open Contact from Approver.Open Contact from Approver</td>
 										<td><span class='test-status fail'>fail</span></td>
 									</tr>
 								</tbody>
@@ -354,8 +488,8 @@
 
                         <li class='exception displayed active'>
                             <div class='exception-heading'>
-                                <span class='exception-name'>java.lang.IllegalArgumentException</span>
-                                <span class='exception-count right'><span class='label red lighten-1 white-text'>1</span></span>
+                                <span class='exception-name'>org.openqa.selenium.TimeoutException</span>
+                                <span class='exception-count right'><span class='label red lighten-1 white-text'>2</span></span>
                             </div>
                             <div class='exception-content hide'>
                                 <div class='exception-tests'>
@@ -369,13 +503,34 @@
                                         </thead>
                                         <tbody>
                                                     <tr>
-                                                        <td>Mar 18, 2019 11:38:37 AM</td>
-                                                        <td class='linked' test-id='5'>Contact Feature.Open Contact from Approver.Open Contact from Approver.Given Verify, Approve contact from Approver AP5 Password123</td>
-                                                        <td><pre><pre>java.lang.IllegalArgumentException: Keys to send should be a not null CharSequence
-	at org.openqa.selenium.remote.RemoteWebElement.sendKeys(RemoteWebElement.java:97)
-	at tests.cucumber.steps.contactSteps.verifyApproveContactFromApproverUsernamePassword(contactSteps.java:383)
-	at ✽.Given Verify, Approve contact from Approver AP5 Password123(temp.feature:5)
-</pre></pre></td>
+                                                        <td>Mar 29, 2019 01:08:37 PM</td>
+                                                        <td class='linked' test-id='13'>Contact Feature.Login into twofour54 and create Contact.Login into twofour54 and create Contact.Then I enter Email Address as Email:Devan.M</td>
+                                                        <td><pre><textarea>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[FirefoxDriver: firefox on XP (362d4ac3-971b-4d81-9fe2-65eeafdfa386)] -> xpath: //a[@id='ctrlElementoForm_11398_289029_SUBMIT']] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: '3.141.5', revision: 'd54ebd709a', time: '2018-11-06T11:42:16'
+System info: host: 'DELL001-PC', ip: '172.17.1.227', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_171'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 55.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:processID: 9980, moz:profile: C:\Users\NagarajS\AppData\L..., pageLoadStrategy: normal, platform: XP, platformName: XP, platformVersion: 6.1, rotatable: false, specificationLevel: 0, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}}
+Session ID: 362d4ac3-971b-4d81-9fe2-65eeafdfa386
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+	at tests.cucumber.steps.contactSteps.iEnterEmailAddressAsEmailAdmin(contactSteps.java:259)
+	at ✽.Then I enter Email Address as Email:Devan.M(contact.feature:10)
+</textarea></pre></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Mar 29, 2019 01:10:20 PM</td>
+                                                        <td class='linked' test-id='16'>Contact Feature.Open Contact from Approver.Open Contact from Approver.Given Verify, Approve contact from Approver AP5 Password123 Employe 11 Employe 11</td>
+                                                        <td><pre><textarea>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[FirefoxDriver: firefox on XP (362d4ac3-971b-4d81-9fe2-65eeafdfa386)] -> id: ctrlElementoAnexo_11863_302997_APPROVE] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: '3.141.5', revision: 'd54ebd709a', time: '2018-11-06T11:42:16'
+System info: host: 'DELL001-PC', ip: '172.17.1.227', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_171'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 55.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:processID: 9980, moz:profile: C:\Users\NagarajS\AppData\L..., pageLoadStrategy: normal, platform: XP, platformName: XP, platformVersion: 6.1, rotatable: false, specificationLevel: 0, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}}
+Session ID: 362d4ac3-971b-4d81-9fe2-65eeafdfa386
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+	at tests.cucumber.steps.contactSteps.verifyApproveContactFromApproverUsernamePassword(contactSteps.java:465)
+	at ✽.Given Verify, Approve contact from Approver AP5 Password123 Employe 11 Employe 11(contact.feature:18)
+</textarea></pre></td>
                                                     </tr>
                                         </tbody>
                                     </table>
@@ -401,37 +556,37 @@
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Features
-					<div class='panel-lead'>1</div>
+					<div class='panel-lead'>2</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Scenarios
-					<div class='panel-lead'>1</div>
+					<div class='panel-lead'>3</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Steps
-					<div class='panel-lead'>1</div>
+					<div class='panel-lead'>6</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Mar 18, 2019 11:38:37 AM</div>
+					<div class='panel-lead'>Mar 29, 2019 01:05:31 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Mar 18, 2019 11:39:07 AM</div>
+			 		<div class='panel-lead'>Mar 29, 2019 01:11:54 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>30,026ms</div>
+					<div class='panel-lead'>382,691ms</div>
 				</div>
 			</div>
 			<div class='col s4'>
@@ -467,9 +622,18 @@
 							<th>Passed %</th>
 						</tr>
 						<tr>
-							<td>@twofour54Application-Temp</td>
-							<td>0</td>
+							<td>@twofour54Application-login</td>
 							<td>2</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@twofour54Application-Contact</td>
+							<td>0</td>
+							<td>3</td>
 							<td>0</td>
 							<td>
 									0%
@@ -497,7 +661,7 @@
 
 		<script>
 			var statusGroup = {
-				passParent: 0,
+				passParent: 1,
 				failParent: 1,
 				fatalParent: 0,
 				errorParent: 0,
@@ -505,23 +669,23 @@
 				skipParent: 0,
 				exceptionsParent: 1,
 				
-				passChild: 0,
-				failChild: 1,
+				passChild: 1,
+				failChild: 2,
 				fatalChild: 0,
 				errorChild: 0,
 				warningChild: 0,
 				skipChild: 0,
 				infoChild: 0,
-				exceptionsChild: 1,
+				exceptionsChild: 2,
 				
-				passGrandChild: 0,
-				failGrandChild: 1,
+				passGrandChild: 4,
+				failGrandChild: 2,
 				fatalGrandChild: 0,
 				errorGrandChild: 0,
 				warningGrandChild: 0,
 				skipGrandChild: 0,
 				infoGrandChild: 0,
-				exceptionsGrandChild: 1,
+				exceptionsGrandChild: 2,
 			};
 		</script>
 		

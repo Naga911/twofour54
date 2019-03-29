@@ -17,4 +17,9 @@ public class ThreadLocalDriver {
     {
         return tlDriver.get();
     }
+
+
+    public static synchronized WebDriver getDriver() {
+        return tlDriver.get();
+    }
 }

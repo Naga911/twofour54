@@ -3,6 +3,8 @@ package utilities;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.markuputils.ExtentColor;
+import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.cucumber.listener.Reporter;
 
 import cucumber.api.Scenario;
@@ -50,6 +52,7 @@ public class TestListener extends BaseTest implements ITestListener {
         System.out.println((result.getMethod().getMethodName() + " started!"));
         ExtentTest extentTest = extent.createTest(result.getMethod().getMethodName(), result.getMethod().getDescription());
         test.set(extentTest);
+     //   extentTest.debug(MarkupHelper.createLabel(ExtentManager.getBrowser() + " " + ExtentManager.getVersion(), ExtentColor.TRANSPARENT));
 
     }
 

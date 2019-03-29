@@ -10,13 +10,13 @@ Feature: Contact Feature
     Then I enter Email Address as Email:<email>
 
     Examples:
-      | FirstName | LastName  | Mother's Name | Passport   | PlaceOfBirth | UAEMobileNo | PhoneNoOrigin | DOB        | PassportIDate | PassportEDate | email   |
-      | Employe 10 | Employe 10 | Mother        | HGTFR554RR | Bangalore    | 9876543     | 76543         | 11-03-2000 | 10-02-2019    | 21-03-2041    | Devan.M |
+      | FirstName  | LastName   | Mother's Name | Passport   | PlaceOfBirth | UAEMobileNo | PhoneNoOrigin | DOB        | PassportIDate | PassportEDate | email   |
+      | Employe 11 | Employe 11 | Mother        | HGTFR554RR | Bangalore    | 9876543     | 76543         | 11-03-2000 | 10-02-2019    | 21-03-2041    | Devan.M |
 
 
   Scenario Outline: Open Contact from Approver
-    Given Verify, Approve contact from Approver <username> <password>
+    Given Verify, Approve contact from Approver <username> <password> <FirstName> <LastName>
 
     Examples:
-      | username | password    |
-      | AP5      | Password123 |
+      | username | password    | FirstName  | LastName   |
+      | AP5      | Password123 | Employe 11 | Employe 11 |
